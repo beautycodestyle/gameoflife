@@ -12,7 +12,7 @@ for (let i = 0; i < 40; i ++) {
     }
 }
 
-const wss = new WebSocket.Server({port: 3333});
+const wss = new WebSocket.Server({port: 30001});
 
 /**
  * Generate random color

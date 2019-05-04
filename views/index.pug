@@ -6,7 +6,8 @@ block content
         $(document).ready(function() {
             const canvas = document.getElementById("gamepad");
             const canvas_context = canvas.getContext("2d");
-            const ws = new WebSocket('ws://localhost:3333');
+            const HOST = location.origin.replace(/^http/, 'ws')
+            const ws = new WebSocket(HOST + '1');
 
             canvas.addEventListener('click', handleClick);
             // Connect to websocket
@@ -22,7 +23,6 @@ block content
                     document.getElementsByClassName("color-rect")[0].style.backgroundColor = client_color;
                 }
                 grid = msg.grid;
-                console.log(grid);
                 drawBoard(canvas_context);
             };
 
