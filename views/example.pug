@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    script(src="/javascripts/utils.js")
+    script(src="/javascripts/exampleData.js")
+    script(src="/javascripts/client.js")
+    script.
+        $(document).ready(function() {
+            const board_type = !{JSON.stringify(type)}
+            const canvas_context = document.getElementById("gamepad").getContext("2d");
+            grid = getBoard(board_type);
+            updateBoard(canvas_context);
+        });
+    canvas#gamepad.mt-3(height="800px" width="800px")

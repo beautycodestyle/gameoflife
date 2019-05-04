@@ -1,0 +1,39 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black !important;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.bg-blue {
+  background-color: dodgerblue !important;
+}
+.font-color-white {
+  color: white !important;
+}
+div #dropdown {
+  background: azure;
+}
+
+#gamepad {
+  display: block;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.color-pad {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  background-color: white;
+}
+
+.color-rect {
+  margin: 5px !important;
+  width: 30px;
+  height: 30px;
+  background-color: #FF0088;
+}

@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    script(src="/javascripts/client.js")
+    script.
+        $(document).ready(function() {
+            const canvas = document.getElementById("gamepad");
+            const canvas_context = canvas.getContext("2d");
+            const ws = new WebSocket('ws://localhost:3333');
+
+            canvas.addEventListener('click', handleClick);
+            // Connect to websocket
+            ws.onopen = function () {
+                console.log('ws opened on browser')
+                ws.send(JSON.stringify({event: "connected", data: "I connected."}))
+            };
+
+            ws.onmessage = function (message) {
+                let msg = JSON.parse(message.data);
+                if (msg.event === 'setcolor') {
+                    client_color = msg.color;
+                    document.getElementsByClassName("color-rect")[0].style.backgroundColor = client_color;
+                }
+                grid = msg.grid;
+                console.log(grid);
+                drawBoard(canvas_context);
+            };
+
+            function handleClick(e) {
+                canvas_context.fillStyle = client_color;
+                canvas_context.fillRect(Math.floor(e.offsetX / cell_size) * cell_size,
+                    Math.floor(e.offsetY / cell_size) * cell_size, cell_size, cell_size
+                );
+                ws.send(JSON.stringify({event: "click",
+                    data: {x: Math.floor(e.offsetX / cell_size),
+                    y: Math.floor(e.offsetY / cell_size)
+                }}));
+            }
+        });
+    canvas#gamepad.mt-3(height="800px" width="800px")

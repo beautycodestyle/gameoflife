@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= title
+    script(src='/js/jquery.js')
+    script(src='/js/bootstrap.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.css')
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-blue
+      a.navbar-brand.font-color-white.font-weight-bold(href="#") Game Of Life
+      button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+             aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation")
+        span(class="navbar-toggler-icon")
+      #navbarContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href="/") Home
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false") Examples
+            #dropdown.dropdown-menu(aria-labelledby="navbarDropdown")
+              a.dropdown-item(href="/example/oscillator") Oscillators
+              a.dropdown-item(href="/example/other-oscillator") Other Oscillators
+              a.dropdown-item(href="/example/spaceship") Spaceship
+        span.navbar-text My color:
+        div.color-pad
+          .color-rect
+    block content
