@@ -3,8 +3,10 @@ Game of life is web application that implement [Conway's Game of Life](https://e
 
 
 ## Installation
+For running on local.
 Use the Node Package Manager (NPM).
 ```bash
 npm install
 npm start
 ```
+This is basic version of production, so didn't describe heroku deploy.
